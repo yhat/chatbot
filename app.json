@@ -1,0 +1,20 @@
+{
+  "name": "Chat Bot App",
+  "description": "A bot written with NLTK and Yhat",
+  "keywords": [
+    "chat",
+    "therapist",
+    "elisa",
+    "yhat"
+  ],
+  "addons": [],
+  "env": {
+    "YHAT_USERNAME": {
+      "description": "Your Yhat username",
+      "value": "greg"
+    },
+    "YHAT_APIKEY": {
+      "description": "Your Yhat apikey"
+    }
+  }
+}
