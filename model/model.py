@@ -3,7 +3,7 @@ import nltk
 
 
 bot = nltk.chat.eliza.eliza_chatbot
-bot = nltk.chat.iesha.iesha_chatbot
+# bot = nltk.chat.iesha.iesha_chatbot
 
 
 class ChatBot(YhatModel):
