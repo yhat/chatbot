@@ -39,12 +39,14 @@
   $("#textform").submit(function(e) {
     e.preventDefault();
     socket.emit("chat", { name: "you", text: $("#text").val() });
+    $("#text").val("");
     return false;
   });
 
   $("#submit-text").click(function(e) {
     e.preventDefault();
     socket.emit("chat", { name: "you", text: $("#text").val() });
+    $("#text").val("");
     return false;
   });
 

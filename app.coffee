@@ -55,6 +55,7 @@ io = require("socket.io")(server)
 io.on "connection", (socket) ->
 
   socket.on "chat", (data) ->
+    console.log "CHAT DATA: " + JSON.stringify(data)
     yh.predict "ChatBot", data, (err, response) ->
       text = response.result.reply
       socket.emit "chat", { name: "bot", "text": text }
