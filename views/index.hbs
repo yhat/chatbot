@@ -1,0 +1,60 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Messages</h3>
+        </div>
+        <div id="messages" class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start form -->
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form id="textform">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="input-group">
+                <input id="text" type="text" class="form-control" title="You've got to say something!">
+              <div class="input-group-btn">
+                <button id="submit-text" class="btn btn-default" type="button">submit</button>
+              </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+          </div><!-- /.col-xs-12 -->
+        </div><!-- /.row -->
+      </form>
+    </div>
+  </div>
+  <!-- end form -->
+</div>
+
+
+<script type="text/javascript">
+  var socket = io.connect('/');
+
+  $("#textform").submit(function(e) {
+    e.preventDefault();
+    socket.emit("chat", { name: "you", text: $("#text").val() });
+    return false;
+  });
+
+  $("#submit-text").click(function(e) {
+    e.preventDefault();
+    socket.emit("chat", { name: "you", text: $("#text").val() });
+    return false;
+  });
+
+  socket.on('connect', function() {
+    console.log("we have liftoff!");
+  });
+
+  socket.on("chat", function(data) {
+      var template = '<p>' + data.name + '> ' + data.text + '</p>';
+      $("#messages").append(template);
+  });
+
+</script>
