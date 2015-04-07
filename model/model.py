@@ -15,5 +15,5 @@ class ChatBot(YhatModel):
 print ChatBot().execute({ "text": "I'm feeling sad." })
 
 
-yh = Yhat("greg", "fCVZiLJhS95cnxOrsp5e2VSkk0GfypZqeRCntTD1nHA", "http://cloud.yhathq.com/")
+yh = Yhat("greg", "foo", "http://cloud.yhathq.com/")
 print yh.deploy("ChatBot", ChatBot, globals())
